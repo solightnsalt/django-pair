@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form action="{% url 'crud:detail' %}">
+
+    제목
+    <input type="text" name="title">
+    내용
+    <input type="text" name="content">
+    <input type="submit">
+</form>
+<a href="{% url 'crud:index' %}">홈</a>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section>
+    <a href="{% url 'crud:create' %}">리뷰 작성</a>
+    <table>
+        <thead>
+            <tr>
+                <th>리뷰번호</th>
+                <th>리뷰제목</th>
+                <th>작성시간</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+
+</section>
+
+
+{% endblock %}
