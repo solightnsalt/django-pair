@@ -14,11 +14,16 @@ def create(request):
     return render(request, "crud/create.html")
 
 
-def detail(request):
+def created_at(request):
     title = request.GET.get("title")
     content = request.GET.get("content")
     Review.objects.create(
         title=title,
         content=content,
     )
+    return redirect("crud:index")
+
+
+def detail(request):
+
     return render(request, "crud/detail.html")

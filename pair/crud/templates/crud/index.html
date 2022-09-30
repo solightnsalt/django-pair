@@ -2,7 +2,8 @@
 
 {% block content %}
 <section class="container">
-    <a type="button" class="btn btn-dark" href="{% url 'crud:create' %}" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+    <a type="button" class="btn btn-dark" href="{% url 'crud:create' %}"
+        style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
         리뷰 작성
     </a>
     <table class="table my-2">
@@ -14,11 +15,13 @@
             </tr>
         </thead>
         <tbody>
+            {% for review in reviews %}
             <tr>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td><a href="{% url 'crud:detail' %}">{{ review.pk }}</a></td>
+                <td>{{ review.content }}</td>
+                <td>{{ review.created_at }}</td>
             </tr>
+            {% endfor %}
         </tbody>
     </table>
 
