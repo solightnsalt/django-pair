@@ -7,5 +7,6 @@
     <p>내용</p>
     <p>{{ review.content }}</p>
     <p>{{ review.pk }}</p>
+    <a href="{% url 'crud:delete' review.pk %}">삭제</a>
 </section>
 {% endblock %}

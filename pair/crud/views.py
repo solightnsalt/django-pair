@@ -24,6 +24,14 @@ def created_at(request):
     return redirect("crud:index")
 
 
-def detail(request):
+def detail(request, review_pk):
+    review = Review.objects.get(pk=review_pk)
+    context = {
+        "review": review,
+    }
+    return render(request, "crud/detail.html", context)
 
-    return render(request, "crud/detail.html")
+
+def delete(request, review_pk):
+    Review.objects.get(pk=review_pk).delete()
+    return redirect("crud:index")
