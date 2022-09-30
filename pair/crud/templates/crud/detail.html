@@ -1,13 +1,30 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<section>
-    <h3>제목</h3>
-    <p>{{ review.title }}</p>
-    <p>내용</p>
-    <p>{{ review.content }}</p>
-    <p>{{ review.pk }}</p>
-    <a href="{% url 'crud:update' review.pk %}">수정</a>
-    <a href="{% url 'crud:delete' review.pk %}">삭제</a>
+<section class="container m-3 d-flex justify-content-center flex-column">
+    <a class="btn border-white col-2 fw-bolder btn-lg" href="{% url 'crud:index' %}"> HOME</a>
+    <table class="table-secondary table-bordered">
+        <thead>
+            <tr class="align-middle text-bg-dark">
+                <th class="p-2" style="font-size: 2rem;">{{ review.title }}</th>
+            </tr>
+            <tr style="background: #D8D8D8;">
+                <th class="p-2 small">num.{{ review.pk }}</th>
+            </tr>
+            <tr style="background: #D8D8D8;">
+                <th class="p-2 small">Date created : {{ review.updated_at }}</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr>
+                <th class="p-3">{{ review.content }}</th>
+            </tr>
+        </tbody>
+    </table>
+    <div class="d-flex justify-content-end">
+        <a class="btn btn-info m-1 text-white" href="{% url 'crud:update' review.pk %}">수정</a>
+        <a class="btn btn-danger m-1" href="{% url 'crud:delete' review.pk %}">삭제</a>
+    </div>
 </section>
 {% endblock %}
