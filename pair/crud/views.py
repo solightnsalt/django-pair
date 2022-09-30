@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import Review
-
+import datetime
 # Create your views here.
 def index(request):
     reviews = Review.objects.all()
@@ -34,4 +34,23 @@ def detail(request, review_pk):
 
 def delete(request, review_pk):
     Review.objects.get(pk=review_pk).delete()
+    return redirect("crud:index")
+
+
+def update(request, review_pk):
+    review = Review.objects.get(pk=review_pk)
+    context = {
+        "review" : review,
+    }
+    return render(request, "crud/update.html", context)
+
+
+def updated(request, review_pk):
+    review = Review.objects.get(pk=review_pk)
+    title_updated = request.GET.get("title_updated")
+    content_updated = request.GET.get("content_updated")
+    review.title = title_updated
+    review.content = content_updated
+    review.updated_at = 
+    review.save()    
     return redirect("crud:index")
