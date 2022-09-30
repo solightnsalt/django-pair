@@ -1,13 +1,15 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<form action="{% url 'crud:detail' %}">
-
-    제목
-    <input type="text" name="title">
-    내용
-    <input type="text" name="content">
-    <input type="submit">
+<form action="{% url 'crud:index' %}">
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">제목</label>
+        <input type="text" class="form-control" name="title" placeholder="제목을 입력해주세요.">
+    </div>
+    <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">내용</label>
+        <input type="text" class="form-control" name="content"" rows="3">
+    </div>
 </form>
 <a href="{% url 'crud:index' %}">홈</a>
 {% endblock %}

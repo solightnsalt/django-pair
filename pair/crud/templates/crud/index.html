@@ -1,13 +1,15 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<section>
-    <a href="{% url 'crud:create' %}">리뷰 작성</a>
-    <table>
-        <thead>
+<section class="container">
+    <a type="button" class="btn btn-dark" href="{% url 'crud:create' %}" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+        리뷰 작성
+    </a>
+    <table class="table my-2">
+        <thead class="text-bg-dark">
             <tr>
-                <th>리뷰번호</th>
-                <th>리뷰제목</th>
+                <th>글번호</th>
+                <th>제목</th>
                 <th>작성시간</th>
             </tr>
         </thead>
@@ -21,6 +23,4 @@
     </table>
 
 </section>
-
-
 {% endblock %}
